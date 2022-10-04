@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +15,5 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', 'App\Http\Controllers\Controller@index');
 
+Route::get('user/{id}', [UserController::class, 'profilePage'])
+    ->name('user.profilePage');
