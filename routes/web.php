@@ -13,8 +13,5 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\Controller@index');
 
-Route::get('/{id}', [PostController::class,'show'])->whereNumber('id');
