@@ -15,8 +15,15 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', 'App\Http\Controllers\Controller@index');
 
-Route::get('user/{id}', [UserController::class, 'profilePage'])
+Route::get('user', [UserController::class, 'profilePage'])
     ->name('user.profilePage');
+
+Route::post('user/update}', [UserController::class, 'profilePageUpdate'])
+->name('user.profilePageUpdate');
+
+Route::get('user/disabled', [UserController::class, 'profilePageDisabled'])
+    ->name('user.profilePageDisabled');
+
 
 Auth::routes();
 
