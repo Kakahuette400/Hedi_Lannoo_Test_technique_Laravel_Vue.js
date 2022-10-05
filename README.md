@@ -1,67 +1,55 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#Test Technique - DEVELOPPEUR PHP - LARAVEL 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Maintainability](https://api.codeclimate.com/v1/badges/73791429b4aec845712f/maintainability)](https://codeclimate.com/github/Kakahuette400/Hedi_Lannoo_Test_technique_Laravel_Vue.js/maintainability)
 
-## About Laravel
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/045dd7ce2e994f28a194b3c5a24de043)](https://www.codacy.com/gh/Kakahuette400/Hedi_Lannoo_Test_technique_Laravel_Vue.js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kakahuette400/Hedi_Lannoo_Test_technique_Laravel_Vue.js&amp;utm_campaign=Badge_Grade)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation
+- PHP 8.0.2
+- MySql 5.7.36
+- Apache 2.4.51
+- Laravel 9.19
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
+- Localhost
+  For this project I used WAMPSERVER avaible here : https://www.wampserver.com/ (include PHP/SQL/APACHE)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installing the project:
+Step 1: Clone the Repository on server from the root with the command: **git clone https://github.com/Kakahuette400/Hedi_Lannoo_Test_technique_Laravel_Vue.js.git**
 
-## Learning Laravel
+Step 2: Install composer on your project if it's not already the case: https://getcomposer.org/
+- Modify your "DATABASE_URL=" in .env file
+- Modify your "MAILER_DSN=" in .env file (Only if you want to use change password function)
+- Install node.js to install different JS packages available on : https://nodejs.org/fr/download/ with "npm install" 
+- Install all dependencies available on : https://packagist.org/ whit "composer install"
+- Read the documentation to customize your installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Step 3: To create a database follow this instructions :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+`Follow this instructions to create and build your database `
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    1 - Create database on your DBMS manually
+    2 - On your terminal : php artisan make:migration 
+    3 - php artisan migrate --seed 
+    4 - Go to your DBMS manually and replace the role of one user for ROLE_ADMIN
 
-## Laravel Sponsors
+Step 4: Run the application :
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+`Place this command in your terminal `
 
-### Premium Partners
+    php -S localhost:8000 -t public  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Step 5: Go to http://localhost:8000/login :
 
-## Contributing
+`You have 2 choices : `
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    Admin - Keep the email of your administrator on your DBMS.
+    User  - Keep A random email on your DBMS. (Except Admin :D )
+    Password : password
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Documentation
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# H-di_Lannoo_Test_technique_Laravel_Vue.js
+For more information about app utilisation, please refer to the documentation available in the directory project.
+   
+   
