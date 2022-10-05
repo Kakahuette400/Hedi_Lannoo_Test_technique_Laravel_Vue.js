@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,9 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', 'App\Http\Controllers\Controller@index');
 
@@ -24,7 +28,23 @@ Route::post('user/update}', [UserController::class, 'profilePageUpdate'])
 Route::get('user/disabled', [UserController::class, 'profilePageDisabled'])
     ->name('user.profilePageDisabled');
 
+Route::get('admin/dashboard',[AdminController::class, 'dashboardAdmin'])
+    ->name('admin.dashboard');
 
-Auth::routes();
+Route::get('admin/form-inscription', [AdminController::class, 'createUserForm'])
+    ->name('admin.form-inscription');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin/form-inscription/{id}', [AdminController::class, 'updateUserForm'])
+    ->name('admin.form-inscription.id');
+
+Route::post('admin/form-inscription', [AdminController::class, 'UserForm']);
+Route::put('admin/form-inscription/{id}', [AdminController::class, 'userForm']);
+
+Route::get('/admin/switch/{id}', [AdminController::class, 'switchUserAccount'])
+    ->name('admin.switchUserAccount');
+
+Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUserAccount'])
+    ->name('admin.deleteUserAccount');
+
+
+
