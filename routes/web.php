@@ -28,10 +28,10 @@ Route::middleware(['auth', 'roles:ROLE_ADMIN'])->group(function () {
     Route::post('admin/form-inscription', [AdminController::class, 'UserForm']);
     Route::put('admin/form-inscription/{id}', [AdminController::class, 'userForm']);
 
-    Route::get('/admin/switch/{id}', [AdminController::class, 'switchUserAccount'])
+    Route::get('/admin/switch/{id}', [AdminController::class, 'softDeleteUserAccount'])
         ->name('admin.switchUserAccount');
 
-    Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUserAccount'])
+    Route::get('/admin/delete/{id}', [AdminController::class, 'hardDeleteUserAccount'])
         ->name('admin.deleteUserAccount');
 });
 

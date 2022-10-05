@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>Laravel</title>
-    <link rel="stylesheet" href="{{ asset('../../css/app.css')}}"/>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-            crossorigin="anonymous"></script>
-</head>
-<body>
+@section('content')
 <div class="container col-xl-10 ">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -35,7 +22,7 @@
                         <th>Name</th>
                         <th>Rôle</th>
                         <th>Email</th>
-                        <th>IsActive</th>
+                        <th>delete</th>
                         <th colspan="2" class="text-center">Actions</th>
                     </tr>
                     </thead>
@@ -46,7 +33,7 @@
                         <td style="max-width: 10em;">{{ $user->name }}</td>
                         <td style="max-width: 10em;">{{ $user->roles }}</td>
                         <td style="max-width: 10em;">{{ $user->email }}</td>
-                        <td style="max-width: 12em;">{{ $user->isActive }}</td>
+                        <td style="max-width: 12em;">{{ $user->deleted_at }}</td>
 
                         <td class="text-center" style="max-width: 10em;">
 
@@ -54,19 +41,16 @@
                                 <button type="submit" class="btn btn-dark">Edit</button>
                             </form>
 
-
+                            @if(!$user->deleted_at)
                             <form class="form-horizontal" method="GET" action="/admin/switch/{{ $user->id }} }}">
-                                @if ($user->isActive)
-                                <button type="submit" class="btn btn-warning">Disable
-                                @else
-                                </button><button type="submit" class="btn btn-success">Enable</button>
-                                @endif
+                                <button type="submit" class="btn btn-success">Soft delete</button>
                             </form>
+                            @endif
 
 
 
                             <form class="form-horizontal" method="GET" action="/admin/delete/{{ $user->id }} }}">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Hard Delete</button>
                                 <input type="hidden" name="csrf_token" value=""/>
                             </form>
                         </td>
@@ -78,8 +62,4 @@
         </div>
     </div>
 </div>
-
-
-<script src="{{ asset('../../js/app.js')}}"></script>
-</body>
-</html>
+@endsection

@@ -48,8 +48,8 @@ class UserController extends Controller
     public function profilePageDisabled()
     {
         $user = Auth::user();
-        $user->isActive = false;
-        $user->save();
+        //soft delete profile
+        $user->delete();
         Auth::logout();
 
         return redirect('/login')->with('message','Profile Disabled');

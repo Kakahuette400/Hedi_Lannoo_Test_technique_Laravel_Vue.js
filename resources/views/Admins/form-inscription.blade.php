@@ -15,13 +15,6 @@
 </head>
 <body>
 <div class="container mt-5">
-
-    @if(Session::has('success'))
-        <div class="alert alert-success">
-            {{Session::get('success')}}
-        </div>
-    @endif
-
     @if (isset($user))
         <form method="POST" action="{{ action('App\Http\Controllers\AdminController@updateUserForm',[$user->id]) }}">
             @method('PUT')
