@@ -58,28 +58,23 @@ class AdminController extends Controller
             'isActive' => true
         ]);
 
-        return back()->with('success', "L'utilisateur a été enregistré");
+        return back()->with('success', "this user is now registered");
 
     }
 
-    public function switchUserAccount($id)
+    public function softDeleteUserAccount($id)
     {
-       $user = User::where('id', $id)->first();
-        if ($user->isActive) {
-            $user->isActive = false;
-        } else {
-            $user->isActive = true;
-        }
-        $user->save();
-
-        return redirect('/admin/dashboard');
-    }
-
-    public function deleteUserAccount($id)
-    {
-        $user = User::where('id', $id)->first();
+       $user = User::find($id);
         $user->delete();
 
-        return redirect('/admin/dashboard');
+        return back()->with('success', "This user has been soft deleted");
+    }
+
+    public function hardDeleteUserAccount($id)
+    {
+        $user = User::withTrashed()->where('id',$id);
+        $user->forceDelete();
+
+        return back()->with('success', "This user has been deleted definitively");;
     }
 }
