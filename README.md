@@ -46,10 +46,3 @@ Step 5: Go to http://localhost:8000/login :
     Admin - Keep the email of your administrator on your DBMS.
     User  - Keep A random email on your DBMS. (Except Admin :D )
     Password : password
-
-
-## Documentation
-
-For more information about app utilisation, please refer to the documentation available in the directory project.
-   
-   
